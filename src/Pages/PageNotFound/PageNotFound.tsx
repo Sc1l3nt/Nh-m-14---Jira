@@ -6,7 +6,7 @@ type Props = {};
 const PageNotFound = (props: Props) => {
   return (
     <div className="container-page-not-found">
-      <a target="_blank" href="https://codepen.io/uiswarup/full/wvjZgar">
+      <a href="https://codepen.io/uiswarup/full/wvjZgar">
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-12 mt-5 mb-5">
