@@ -1,8 +1,6 @@
 import axios from "axios";
-import { createBrowserHistory } from "history";
+import { history } from "../index";
 export const DOMAIN = "https://jiranew.cybersoft.edu.vn/api";
-
-export const history = createBrowserHistory();
 
 export const USER_LOGIN: string = "user_login";
 export const ACCESS_TOKEN: string = "access_token";
