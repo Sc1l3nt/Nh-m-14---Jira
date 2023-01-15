@@ -18,7 +18,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/project" element={<Project />} />
-      </Routes>
+      </Routes> 
     </BrowserRouter>
   </Provider>
 );
