@@ -1,3 +1,4 @@
+import { Avatar } from "antd";
 import React from "react";
 
 type Props = {};
@@ -25,10 +26,10 @@ const MainContent = (props: Props) => {
               <div className="block-right">
                 <div className="avatar-group" style={{ display: "flex" }}>
                   <div className="avatar">
-                    <img src="./assets/img/download (1).jfif" />
+                    <Avatar src="https://i.pravatar.cc/600" size="large" />
                   </div>
                   <div className="avatar">
-                    <img src="./assets/img/download (2).jfif" />
+                    <Avatar src="https://i.pravatar.cc/600" size="large" />
                   </div>
                 </div>
               </div>
@@ -46,10 +47,10 @@ const MainContent = (props: Props) => {
               <div className="block-right">
                 <div className="avatar-group" style={{ display: "flex" }}>
                   <div className="avatar">
-                    <img src="./assets/img/download (1).jfif" />
+                    <Avatar src="https://i.pravatar.cc/600" size="large" />
                   </div>
                   <div className="avatar">
-                    <img src="./assets/img/download (2).jfif" />
+                    <Avatar src="https://i.pravatar.cc/600" size="large" />
                   </div>
                 </div>
               </div>
