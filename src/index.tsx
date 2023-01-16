@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Project from "./Pages/Project/Project";
 import ProjectList from "./Pages/Project/List/ProjectList";
+import ProjectDetail from "./Pages/Project/Detail/ProjectDetail";
+import ProjectNew from "./Pages/Project/New/ProjectNew";
 
 export const history = createBrowserHistory();
 
@@ -19,7 +21,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<ProjectList />} />
+        <Route path="" element={<ProjectNew />} />
         {/* List of Projects  */}
         <Route path="/project" element={<Project />} />
         {/* Create New Project  */}
