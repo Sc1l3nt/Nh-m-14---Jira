@@ -1,6 +1,6 @@
 import React from "react";
 import "./Menu.scss";
-import { Avatar, Typography, Skeleton, Image } from "antd";
+import { Avatar } from "antd";
 
 type Props = {};
 
