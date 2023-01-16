@@ -1,0 +1,77 @@
+@import "../../index.scss";
+/* Menu */
+.menu {
+  height: 100vh;
+  margin-left: 60px;
+  background-color: #f4f5f7;
+  .account {
+    display: flex;
+    padding: 4% 18%;
+    align-items: center;
+    .avatar {
+    }
+    .account-info {
+      margin-top: -10px;
+      padding-top: 12%;
+      span {
+        display: inline-block;
+        font-size: 13px;
+        &:first-child {
+          font-weight: 500;
+          font-size: 17px;
+          margin-bottom: -10%;
+        }
+      }
+    }
+  }
+  .control {
+    padding: 0% 10%;
+    text-align: left;
+    margin-bottom: 8%;
+    border-bottom: 2px solid #c4c5c6;
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 15px;
+    div {
+      margin-bottom: 10px;
+      padding: 2% 3%;
+      cursor: pointer;
+      span {
+        margin-left: 10px;
+        font-weight: 400;
+        &:first-child {
+          margin-right: 10px;
+          &:hover {
+            background-color: #ebecf0;
+          }
+        }
+      }
+      &:hover {
+        color: royalblue;
+      }
+    }
+  }
+  .feature {
+    padding: 0% 10%;
+    text-align: left;
+    margin-bottom: 8%;
+    margin-left: 7%;
+    margin-right: 7%;
+    div {
+      margin-bottom: 5px;
+      padding: 2% 3%;
+      cursor: pointer;
+      .svg-inline--fa {
+        margin-right: 5px;
+      }
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 6px;
+      }
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}

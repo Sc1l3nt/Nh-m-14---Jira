@@ -1,0 +1,115 @@
+@import "../../index.scss";
+// Side bar
+// .sidebar {
+//   width: 10vh;
+//   background-color: $primary-color;
+//   padding: 10px 20px;
+//   position: fixed;
+//   height: 100vh;
+//   .sidebar-top {
+//     .sidebar-icon {
+//       color: #fff;
+//       font-size: 30px;
+//       display: flex;
+//       align-items: center;
+//       span {
+//         font-size: 14px;
+//         text-transform: uppercase;
+//         margin-left: 1.3rem;
+//         font-weight: bold;
+//         color: #c9e8ff;
+//         display: inline;
+//       }
+//     }
+//   }
+//   &:hover {
+//     width: 28vh;
+//     transition: all ease 0.1s;
+//     .sidebar-top {
+//       .sidebar-icon {
+//         span {
+//           display: inline;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  height: 100vh;
+  // width: 11vw;
+  width: 60px;
+  background-color: $primary-color;
+  border-right: 1px solid $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all ease 0.2s;
+  &:hover {
+    width: 11vw;
+    transition: all ease 0.2s;
+    .sidebar-top {
+      .sidebar-icon {
+        span {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+    .sidebar-bottom {
+      .sidebar-icon {
+        span {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .sidebar-top {
+    .sidebar-icon {
+      color: #fff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      font-size: 26px;
+      &:hover {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      span {
+        font-size: 12px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+  .sidebar-bottom {
+    .sidebar-icon {
+      color: #fff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      &:hover {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      span {
+        font-size: 13px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// Side bar end
