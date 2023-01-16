@@ -1,66 +1,46 @@
 import React from "react";
-import "../../Assets/Sass/index.scss";
+import "./Menu.scss";
+import { Avatar, Typography, Skeleton, Image } from "antd";
+
 type Props = {};
 
 const Menu = (props: Props) => {
   return (
-    <div className="menu w-100">
+    <div className="menu">
       <div className="account">
-        <div className="avatar">
-          <img src="https://i.pravatar.cc/300" alt="123" />
+        <div className="avatar me-2">
+          <Avatar src="https://i.pravatar.cc/600" size="large" />
         </div>
         <div className="account-info">
-          <p>CyberLearn.vn</p>
-          <p>Report bugs</p>
+          <span>Project Name</span>
+          <span>Project Category</span>
         </div>
       </div>
       <div className="control">
         <div>
-          <i className="fa fa-credit-card mr-1" />
-          {/* <NavLink
-            className="text-dark active font-weight-bold text-primary"
-            style={{ color: "blue" }}
-            to="/cyberbugs"
-          >
-            Cyber Board
-          </NavLink>
+          <i className="fa fa-credit-card" />
+          <span>Cyber Board</span>
         </div>
         <div>
-          <i className="fa fa-cog mr-1" />
-          <NavLink
-            className="text-dark active font-weight-bold  text-primary"
-            style={{ color: "blue" }}
-            to="/projectmanagement"
-          >
-            Project management
-          </NavLink>
-        </div>
-        <div>
-          <i className="fa fa-cog mr-1" />
-          <NavLink
-            className="text-dark active font-weight-bold  text-primary"
-            style={{ color: "blue" }}
-            to="/createproject"
-          >
-            Create project
-          </NavLink> */}
+          <i className="fa fa-cog" />
+          <span>Project Settings</span>
         </div>
       </div>
       <div className="feature">
         <div>
-          <i className="fa fa-truck mr-1" />
+          <i className="fa fa-truck" />
           <span>Releases</span>
         </div>
         <div>
-          <i className="fa fa-equals mr-1" />
+          <i className="fa fa-equals" />
           <span>Issues and filters</span>
         </div>
         <div>
-          <i className="fa fa-paste mr-1" />
+          <i className="fa fa-paste" />
           <span>Pages</span>
         </div>
         <div>
-          <i className="fa fa-location-arrow mr-1" />
+          <i className="fa fa-location-arrow" />
           <span>Reports</span>
         </div>
         <div>

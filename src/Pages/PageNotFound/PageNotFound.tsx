@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Assets/Sass/Pages/PageNotFound.scss";
+import "./PageNotFound.scss";
 
 type Props = {};
 

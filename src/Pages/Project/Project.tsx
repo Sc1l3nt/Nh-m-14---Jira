@@ -1,33 +1,28 @@
 import React from "react";
-import MainContent from "../../Components/MainBoard/MainContent";
+//import { Row, Col } from "antd";
+import SideBar from "../../Components/SideBar/SideBar";
+import Menu from "../../Components/Menu/Menu";
 import MainHeader from "../../Components/MainBoard/MainHeader";
 import MainInfo from "../../Components/MainBoard/MainInfo";
-import Menu from "../../Components/Menu/Menu";
-import SideBar from "../../Components/SideBar/SideBar";
-import "../../Assets/Sass/index.scss";
-import { Row, Col } from "antd";
-
+import MainContent from "../../Components/MainBoard/MainContent";
+import Modal from "../../Components/Modal/Modal";
 type Props = {};
 
-const Project: React.FC = (props: Props) => {
+const Project = (props: Props) => {
   return (
     <div>
-      <Row>
-        <Col span={4}>
-          <SideBar />
-        </Col>
-        <Col span={4}>
-          <Menu />
-        </Col>
-        <Col span={16}>
-          <div className="main">
-            <h3>Cyber Board</h3>
-            <MainHeader />
-            <MainContent />
-            <MainInfo />
-          </div>
-        </Col>
-      </Row>
+      <div className="jira">
+        <SideBar />
+        {/* Menu */}
+        <Menu />
+        {/* {/* {/* Main Board * /} * /} */}
+        <div className="main">
+          <MainHeader />
+          <MainInfo />
+          <MainContent />
+        </div>
+      </div>
+      <Modal />
     </div>
   );
 };
