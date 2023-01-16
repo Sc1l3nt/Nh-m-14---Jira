@@ -8,6 +8,7 @@ import { store } from "./Redux/configStore";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Project from "./Pages/Project/Project";
+import ProjectList from "./Pages/Project/List/ProjectList";
 
 export const history = createBrowserHistory();
 
@@ -18,7 +19,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="" />
+        <Route path="" element={<ProjectList />} />
         {/* List of Projects  */}
         <Route path="/project" element={<Project />} />
         {/* Create New Project  */}
