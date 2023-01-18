@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Projectmanagement = (props: Props) => {
-    return (
-        <div style={{height: window.innerHeight}}>Projectmanagement</div>
-    )
-}
+  return <div style={{ height: window.innerHeight }}>Projectmanagement</div>;
+};
 
-export default Projectmanagement
+export default Projectmanagement;

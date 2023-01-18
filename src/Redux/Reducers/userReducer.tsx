@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { http } from "../../Utils/config";
 import { DispatchType } from "../configStore";
 import { history } from "../../index";
-import { async } from "q";
 
 export interface UserLoginModel {
   email: string;
@@ -22,7 +21,7 @@ const initialState = {
 };
 
 const UserReducer = createSlice({
-  name: "UserReducer",
+  name: "userReducer",
   initialState,
   reducers: {
     loginAction: (state, action) => {
