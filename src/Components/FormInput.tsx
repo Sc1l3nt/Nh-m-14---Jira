@@ -122,6 +122,7 @@ const FormInput = (props: Props) => {
                   prefix={<LockOutlined />}
                   id="passwordConfirm"
                   name="passwordConfirm"
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
                 />
               </Form.Item>
             );

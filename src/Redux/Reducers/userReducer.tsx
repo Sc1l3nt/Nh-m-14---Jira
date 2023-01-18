@@ -51,8 +51,8 @@ export const registerApi = (userRegister: UserRegisterModel) => {
   return async (dispatch: DispatchType) => {
     const result = await http.post("/Users/signup", userRegister);
     console.log(result.data.content);
-    // const action = registerAction(result.data.content);
-    // dispatch(action);
-    // history.push("/login");
+    const action = registerAction(result.data.content);
+    dispatch(action);
+    history.push("/login");
   };
 };
