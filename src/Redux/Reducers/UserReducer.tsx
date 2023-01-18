@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { http } from "../../Utils/config";
 import { DispatchType } from "../configStore";
 import { history } from "../../index";
+import { async } from "q";
 
 export interface UserLoginModel {
   email: string;
@@ -43,5 +44,14 @@ export const loginApi = (userLogin: UserLoginModel) => {
     const action = loginAction(result.data.content);
     dispatch(action);
     history.push("/");
+  };
+};
+
+export const registerApi = (userRegister: UserRegisterModel) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.post("/Users/signup", userRegister);
+    const action = registerAction(result.data.content);
+    dispatch(action);
+    history.push("/login");
   };
 };
