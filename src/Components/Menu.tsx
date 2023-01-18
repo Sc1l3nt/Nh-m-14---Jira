@@ -11,13 +11,14 @@ const Menu = (props: Props) => {
                 <div className='d-flex align-items-start flex-column px-4 position-relative'>
                     <NavLink className='link d-flex' to={'projectmanagement'}>
                         <i className="fa-solid fa-bars-progress"></i>
-                        <div className='title'>Project Management</div>
+                        <h4 className='title'>Project Management</h4>
                     </NavLink>
                     <NavLink className='link d-flex' to={'login'}>
                         <i className="fa-solid fa-right-to-bracket"></i>
-                        <div className='title'>Login</div>
+                        <h4 className='title'>Login</h4>
                     </NavLink>
                     <div className='line position-absolute' />
+                    <div className='check position-absolute' />
                 </div>
             </div>
         </div>
