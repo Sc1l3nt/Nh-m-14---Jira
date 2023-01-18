@@ -3,8 +3,8 @@ $light: #f8f9fa;
 $primary: #0d6efd;
 // SPACING
 $spacer: 1rem;
-$sp-1: $spacer * .25;
-$sp-2: $spacer * .5;
+$sp-1: $spacer * 0.25;
+$sp-2: $spacer * 0.5;
 $sp-3: $spacer * 1;
 $sp-4: $spacer * 1.5;
 $sp-5: $spacer * 3;
@@ -17,11 +17,14 @@ $fs-4: $size * 1.5;
 $fs-5: $size * 1.25;
 $fs-6: $size * 1;
 
-*{
-    padding: 0;
-    margin: 0;
-    border: none;
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-family: "Roboto", sans-serif;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
+
+$primary-color: #0747a6;

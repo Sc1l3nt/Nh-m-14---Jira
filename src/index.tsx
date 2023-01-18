@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import {
   Navigate,
   Route,
@@ -7,6 +8,10 @@ import {
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
+
+import "./index.scss";
+// Setup Redux
+
 import { Provider } from "react-redux";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
