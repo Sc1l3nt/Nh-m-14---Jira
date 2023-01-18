@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import HomeTemplate from './Templates/HomeTemplate';
 import LoginTemplate from './Templates/LoginTemplate';
+import Projectmanagement from './Pages/Project Management/Projectmanagement';
 
 
 const root = ReactDOM.createRoot(
@@ -22,7 +23,8 @@ root.render(
         <Route path='register' element={<Register />} />
       </Route>
       <Route path='/' element={<HomeTemplate />}>
-        <Route path='*' element={<Navigate to='login'/>}/>
+        <Route path='*' element={<Navigate to='projectmanagement'/>}/>
+        <Route path='projectmanagement' element={<Projectmanagement/>}/>
       </Route>
     </Routes>
   </HistoryRouter>

@@ -1,0 +1,45 @@
+@import '../index.scss';
+
+.menu {
+    overflow: hidden;
+    width: 70px;
+    transition: all 1s;
+
+    .link {
+        color: $primary;
+        margin-top: $sp-4;
+        font-size: $fs-5;
+
+        .title {
+            margin-left: $sp-4;
+            font-size: $fs-6;
+            transform: translateY(-50px);
+            transition: all 1s;
+        }
+    }
+
+    .line {
+        height: 2px;
+        width: 45px;
+        left: 12px;
+        top: 110px;
+        background-color: $primary;
+        border-radius: 5px;
+        margin-top: $sp-4;
+        transition: all 1s;
+    }
+
+    &:hover {
+        width: 240px;
+
+        .link {
+            .title {
+                transform: translateY(0px);
+            }
+        }
+
+        .line {
+            width: 215px;
+        }
+    }
+}

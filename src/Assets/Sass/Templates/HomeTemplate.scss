@@ -1,0 +1,16 @@
+@import '../index.scss';
+
+.template{
+    .item{
+        border: 3px solid $primary;
+        &.item-left{
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        &.item-right{
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+            margin-left: 10px;
+        }
+    }
+}

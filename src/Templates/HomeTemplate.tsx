@@ -1,18 +1,20 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../Components/Header'
+import Menu from '../Components/Menu'
+import '../Assets/Sass/Templates/HomeTemplate.scss'
 
 type Props = {}
 
 const HomeTemplate = (props: Props) => {
     return (
-        <div>
-            <Header></Header>
-            <div className='d-flex'>
-                <div className='item-left px-5'>
-                    HomeTemplate
+        <div className='template'>
+            <Header />
+            <div className='d-flex my-2 mx-1'>
+                <div className='item-left item'>
+                    <Menu/>
                 </div>
-                <div className='item-right px-5'>
+                <div className='item-right item'>
                     <Outlet />
                 </div>
             </div>
