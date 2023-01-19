@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LockOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Button, Input, Checkbox, Form } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { NavLink } from "react-router-dom";
@@ -65,7 +65,7 @@ const FormInput = (props: Props) => {
   };
 
   return (
-    <Form
+    <Form 
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: window.innerHeight }}
       onFinish={onFinish}
@@ -134,7 +134,7 @@ const FormInput = (props: Props) => {
                 <Input
                   size="large"
                   placeholder="Name"
-                  prefix="@"
+                  prefix={<UserOutlined />}
                   onChange={(e) => setName(e.target.value)}
                   id="name"
                   name="name"
@@ -149,7 +149,7 @@ const FormInput = (props: Props) => {
                 <Input
                   size="large"
                   placeholder="Phone number"
-                  prefix="@"
+                  prefix={<PhoneOutlined />}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   id="phone"
                   name="phone"
