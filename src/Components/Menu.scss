@@ -1,0 +1,101 @@
+@import "../index.scss";
+
+.menu {
+  width: 70px;
+  transition: all 1s;
+
+  .link {
+    position: relative;
+    z-index: 100;
+    color: $primary;
+    margin-top: $sp-5;
+    font-size: $fs-5;
+
+    .title {
+      position: absolute;
+      top: 0;
+      left: $sp-4 * 2;
+      width: 200px;
+      font-size: $fs-6;
+      transform: translateY(-50px);
+      opacity: 0;
+      transition: all 1s;
+    }
+
+    &.active {
+      color: $light;
+    }
+  }
+
+  .line {
+    height: 2px;
+    width: 45px;
+    left: 12px;
+    top: 150px;
+    background-color: $primary;
+    border-radius: 5px;
+    margin-top: $sp-4;
+    transition: all 1s;
+  }
+
+  .check {
+    z-index: 50;
+    width: 70px;
+    height: 40px;
+    top: 37px;
+    left: 5px;
+    background-color: $primary;
+    border: 2px solid $primary;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition: all 1s;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -12px;
+      left: 56px;
+      border-bottom-right-radius: 20px;
+      border-right: 10px solid $primary;
+      border-bottom: 10px solid $primary;
+      transition: all 1s;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 29px;
+      left: 56px;
+      border-top-right-radius: 20px;
+      border-right: 10px solid $primary;
+      border-top: 10px solid $primary;
+      transition: all 1s;
+    }
+  }
+
+  &:hover {
+    width: 250px;
+    .link {
+      .title {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .line {
+      width: 225px;
+    }
+
+    .check {
+      width: 250px;
+      &::after {
+        left: 236px;
+      }
+      &::before {
+        left: 236px;
+      }
+    }
+  }
+}
