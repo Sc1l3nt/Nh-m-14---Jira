@@ -17,25 +17,14 @@
             left: $sp-4*2;
             width: 200px;
             font-size: $fs-6;
-            transform: translateY(-50px);
             opacity: 0;
-            transition: all 1s;
+            transform: translateX(-500px);
+            transition: all 2s;
         }
 
         &.active{
             color: $light;
         }
-    }
-
-    .line {
-        height: 2px;
-        width: 45px;
-        left: 12px;
-        top: 150px;
-        background-color: $primary;
-        border-radius: 5px;
-        margin-top: $sp-4;
-        transition: all 1s;
     }
 
     .check{
@@ -55,7 +44,7 @@
             width: 20px;
             height: 20px;
             top: -12px;
-            left: 56px;
+            right: -10px;
             border-bottom-right-radius: 20px;
             border-right: 10px solid $primary;
             border-bottom: 10px solid $primary;
@@ -67,7 +56,7 @@
             width: 20px;
             height: 20px;
             top: 29px;
-            left: 56px;
+            right: -10px;
             border-top-right-radius: 20px;
             border-right: 10px solid $primary;
             border-top: 10px solid $primary;
@@ -79,23 +68,13 @@
         width: 250px;
         .link {
             .title {
+                transform: translateY(0);
                 opacity: 1;
-                transform: translateY(0px);
             }
-        }
-
-        .line {
-            width: 225px;
         }
 
         .check{
             width: 250px;
-            &::after{
-                left: 236px
-            }
-            &::before{
-                left: 236px
-            }
         }
     }
 }

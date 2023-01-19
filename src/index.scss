@@ -1,6 +1,7 @@
 // COLORS:
 $light: #f8f9fa;
 $primary: #0d6efd;
+$primary-color: #0747a6;
 // SPACING
 $spacer: 1rem;
 $sp-1: $spacer * 0.25;
@@ -8,7 +9,7 @@ $sp-2: $spacer * 0.5;
 $sp-3: $spacer * 1;
 $sp-4: $spacer * 1.5;
 $sp-5: $spacer * 3;
-// FONT
+// FONT SIZE
 $size: 1rem;
 $fs-1: $size * 2.5;
 $fs-2: $size * 2;
@@ -26,5 +27,3 @@ $fs-6: $size * 1;
 a {
   text-decoration: none;
 }
-
-$primary-color: #0747a6;

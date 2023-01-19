@@ -1,15 +1,17 @@
 @import '../index.scss';
 
-.template{
-    .item{
-        border: 3px solid $primary;
-        &.item-left{
+.template {
+    .item {
+        &.item-left {
+            border: 3px solid $primary;
             border-radius: 20px;
+            height: 100%;
         }
-        &.item-right{
+
+        &.item-right {
             border-radius: 20px;
-            border-width: 10px;
             margin-left: 1px;
+            height: 100%;
         }
     }
 }
