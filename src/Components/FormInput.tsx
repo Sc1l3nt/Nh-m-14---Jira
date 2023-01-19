@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { DispatchType } from "../Redux/configStore";
 import { useDispatch } from "react-redux";
-import { loginApi, registerApi } from "../Redux/Reducers/userReducer";
+//import { loginApi, registerApi } from "../Redux/Reducers/userReducer";
 
 type Props = {
   listRender: string[];
@@ -34,41 +34,29 @@ const FormInput = (props: Props) => {
 
   const dispatch: DispatchType = useDispatch();
 
-  const onFinish = (values: any) => {
-    if (!passwordConfirm) {
-      const actionLogin = loginApi({ email, password });
-      dispatch(actionLogin);
-    } else {
-      const actionRegister = registerApi({
-        email,
-        password,
-        name,
-        phoneNumber,
-      });
-      dispatch(actionRegister);
-    }
+  const handleSubmit = () => {
+    console.log("bug");
   };
 
-  const handleSubmit = () => {
-    if (!passwordConfirm) {
-      const actionLogin = loginApi({ email, password });
-      dispatch(actionLogin);
-    } else {
-      const actionRegister = registerApi({
-        email,
-        password,
-        name,
-        phoneNumber,
-      });
-      dispatch(actionRegister);
-    }
-  };
+  //  const handleSubmit = () => {
+  //   if (!passwordConfirm) {
+  //     const actionLogin = loginApi({ email, password });
+  //     dispatch(actionLogin);
+  //   } else {
+  //     const actionRegister = registerApi({
+  //       email,
+  //       password,
+  //       name,
+  //       phoneNumber,
+  //     });
+  //     dispatch(actionRegister);
+  //   }
+  // };
 
   return (
     <Form
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: window.innerHeight }}
-      onFinish={onFinish}
     >
       <h1>Welcome</h1>
       {listRender?.map((item, i) => {
