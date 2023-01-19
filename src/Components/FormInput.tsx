@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { DispatchType } from "../Redux/configStore";
 import { useDispatch } from "react-redux";
-import { loginApi, registerApi } from "../Redux/Reducers/userReducer";
+import { loginApi, registerApi } from "../Redux/Reducers/UserReducer";
 
 type Props = {
   listRender: string[];
