@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.scss";
+import Search from "./Search";
 
 type Props = {};
 
@@ -15,7 +16,10 @@ const Header = (props: Props) => {
           </div>
         </div>
         <h2 className="title text-light">Jira</h2>
-        <div className="user ms-auto">
+        <div className="ms-auto me-3">
+          <Search />
+        </div>
+        <div className="user">
           <button className="bg-transparent d-flex">
             <div className="border rounded-circle border-light border-2">
               <div className="btn rounded-circle border-primary px-2 bg-light border-2">
