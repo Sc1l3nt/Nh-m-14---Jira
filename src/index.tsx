@@ -42,6 +42,7 @@ root.render(
           <Route path="*" element={<Navigate to="projectmanagement" />} />
           <Route path="projectmanagement" element={<Projectmanagement />} />
         </Route>
+        <Route index element={<Navigate to="projectmanagement" />} />
       </Routes>
     </HistoryRouter>
   </Provider>

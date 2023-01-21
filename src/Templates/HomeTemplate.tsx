@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Components/Header";
 import Menu from "../Components/Menu";
 import "./HomeTemplate.scss";
-import { FloatButton } from "antd";
+import PopUp from "../Components/PopUp";
 
 type Props = {};
 
@@ -12,12 +12,7 @@ const HomeTemplate = (props: Props) => {
   return (
     <div className="template">
       <Header />
-      <FloatButton
-      shape="circle"
-      type="primary"
-      style={{ right: 40 }}
-      icon={<i className="fa-solid fa-plus"></i>}
-    />
+      <PopUp/>
       <div className="d-flex my-4 mx-1">
         <div className="item-left item">
           <Menu />

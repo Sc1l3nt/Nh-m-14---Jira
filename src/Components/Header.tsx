@@ -1,6 +1,6 @@
 import React from "react";
+import Search from "../Pages/Search/Searchs";
 import "./Header.scss";
-import Search from "./Search";
 
 type Props = {};
 
