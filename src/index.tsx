@@ -23,6 +23,7 @@ import { store } from "./Redux/configStore";
 import ReponsiveItem from "./Components/ReponsiveItem";
 import LoginTemplateMobile from "./Templates/LoginTemplateMobile";
 import HomeTemplateMobile from "./Templates/HomeTemplateMobile";
+import Test from "./Pages/Test";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -41,6 +42,7 @@ root.render(
         <Route path="/" element={<ReponsiveItem component={HomeTemplate} componentMobile={HomeTemplateMobile} />}>
           <Route path="*" element={<Navigate to="projectmanagement" />} />
           <Route path="projectmanagement" element={<Projectmanagement />} />
+          <Route path="test" element={<Test />} />
         </Route>
         <Route index element={<Navigate to="projectmanagement" />} />
       </Routes>

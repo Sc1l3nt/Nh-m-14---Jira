@@ -12,6 +12,10 @@ const Menu = (props: Props) => {
             <i className="fa-solid fa-bars-progress"></i>
             <h4 className="title">Project Management</h4>
           </NavLink>
+          <NavLink className="link d-flex" to={"test"}>
+            <i className="fa-solid fa-bars-progress"></i>
+            <h4 className="title">Test</h4>
+          </NavLink>
           <div className="check position-absolute" />
         </div>
     </div>
