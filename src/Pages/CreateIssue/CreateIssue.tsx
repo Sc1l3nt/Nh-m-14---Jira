@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Form, Input, Row, Select } from 'antd';
-import { CheckCircleFilled, PlusSquareFilled, WarningFilled } from '@ant-design/icons';
+import { CaretDownOutlined, CaretUpOutlined, CheckCircleFilled, DownOutlined, MinusOutlined, PlusSquareFilled, UpOutlined, WarningFilled } from '@ant-design/icons';
 import './CreateIssue.scss'
 
 type Props = {}
@@ -50,27 +50,27 @@ const CreateIssue = (props: Props) => {
                                 <Select defaultValue="Option1">
                                     <Option value="Option1">
                                         <div className='text-danger'>
-                                            <PlusSquareFilled className='icon fs-5' /><span className='title ms-2'>Highest</span>
+                                            <CaretUpOutlined className='icon fs-5' /><span className='title ms-2'>Highest</span>
                                         </div>
                                     </Option>
                                     <Option value="Option2">
                                         <div className='text-warning'>
-                                            <PlusSquareFilled className='icon fs-5' /><span className='title ms-2'>High</span>
+                                            <UpOutlined className='icon fs-5' /><span className='title ms-2'>High</span>
                                         </div>
                                     </Option>
                                     <Option value="Option3">
                                         <div className='text-secondary'>
-                                            <PlusSquareFilled className='icon fs-5' /><span className='title ms-2'>Medium</span>
+                                            <MinusOutlined className='icon fs-5' /><span className='title ms-2'>Medium</span>
                                         </div>
                                     </Option>
                                     <Option value="Option4">
                                         <div className='text-success'>
-                                            <PlusSquareFilled className='icon fs-5' /><span className='title ms-2'>Low</span>
+                                            <DownOutlined className='icon fs-5' /><span className='title ms-2'>Low</span>
                                         </div>
                                     </Option>
                                     <Option value="Option5">
                                         <div className='text-primary'>
-                                            <PlusSquareFilled className='icon fs-5' /><span className='title ms-2'>Lowest</span>
+                                            <CaretDownOutlined className='icon fs-5' /><span className='title ms-2'>Lowest</span>
                                         </div>
                                     </Option>
                                 </Select>
