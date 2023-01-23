@@ -20,6 +20,7 @@ import LoginTemplate from "./Templates/LoginTemplate";
 import ProjectManagement from "./Pages/ProjectManagement/ProjectManagement";
 
 import { store } from "./Redux/configStore";
+import Profile from "./Pages/Profile/Profile";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -38,6 +39,7 @@ root.render(
         <Route path="/" element={<HomeTemplate />}>
           <Route path="*" element={<Navigate to="projectmanagement" />} />
           <Route path="projectmanagement" element={<ProjectManagement />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </HistoryRouter>
