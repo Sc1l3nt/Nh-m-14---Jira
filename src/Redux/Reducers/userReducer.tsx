@@ -5,7 +5,7 @@ import { history } from "../../index";
 
 export interface UserLoginModel {
   email: string;
-  password: string;
+  passWord: string;
 }
 
 export interface UserRegisterModel {
@@ -42,7 +42,13 @@ export const loginApi = (userLogin: UserLoginModel) => {
     const result = await http.post("/Users/signin", userLogin);
     const action = loginAction(result.data.content);
     dispatch(action);
-    history.push("/");
+    localStorage.setItem("user_login", JSON.stringify(result.data.content));
+    localStorage.setItem(
+      "access_token",
+      JSON.stringify(result.data.content.accessToken)
+    );
+    // login successfully, redirect to profile page
+    history.push("/profile");
   };
 };
 
