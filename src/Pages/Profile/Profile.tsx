@@ -2,11 +2,12 @@ import React from "react";
 import { Avatar, Button, Card, Input, Space, Typography } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/configStore";
-import { Navigate } from "react-router-dom";
+import "./Profile.scss";
 
 type Props = {};
 
 interface UserProfilePage {
+  id: number;
   email: string;
   avatar: string;
   phoneNumber: string;
@@ -26,7 +27,11 @@ const Profile = (props: Props) => {
     <div className="container" style={{ width: "100vw" }}>
       <div className="row my-2 w-50" style={{ margin: "0 auto" }}>
         <div className="col-5">
-          <Card title="username" className="text-center">
+          <Card
+            title="username"
+            className="text-center"
+            style={{ border: "3px solid #eee" }}
+          >
             <Avatar size="large" src={user.avatar} />
             <ul className="text-start mt-3">
               <li>Change Password</li>
@@ -50,6 +55,9 @@ const Profile = (props: Props) => {
               <Input defaultValue={user.phoneNumber} />
             </Space>
           </Card>
+          <Button type="primary" className="mt-3">
+            Update
+          </Button>
         </div>
       </div>
     </div>
