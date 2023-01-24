@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { http } from "../../Utils/config";
 import { DispatchType } from "../configStore";
 import { history } from "../../index";
+import { notification } from "antd";
 
 export interface UserLoginModel {
   email: string;
@@ -13,6 +14,14 @@ export interface UserRegisterModel {
   password: string;
   name: string;
   phoneNumber: string;
+}
+
+export interface UserChangeInfoModel {
+  id: string;
+  email: string;
+  name: string;
+  phoneNumber: string;
+  passWord: string;
 }
 
 const initialState = {
@@ -30,10 +39,14 @@ const UserReducer = createSlice({
     registerAction: (state, action) => {
       state.userProfile = action.payload;
     },
+    changeInfoAction: (state, action) => {
+      state.userProfile = action.payload;
+    },
   },
 });
 
-export const { loginAction, registerAction } = UserReducer.actions;
+export const { loginAction, registerAction, changeInfoAction } =
+  UserReducer.actions;
 
 export default UserReducer.reducer;
 
@@ -47,7 +60,11 @@ export const loginApi = (userLogin: UserLoginModel) => {
       "access_token",
       JSON.stringify(result.data.content.accessToken)
     );
-    // login successfully, redirect to profile page
+    console.log(result.data.content);
+    notification.success({
+      message: "Login successfully",
+    });
+    //login successfully, redirect to profile page
     history.push("/profile");
   };
 };
@@ -57,6 +74,20 @@ export const registerApi = (userRegister: UserRegisterModel) => {
     const result = await http.post("/Users/signup", userRegister);
     const action = registerAction(result.data.content);
     dispatch(action);
+    notification.success({
+      message: "Register successfully",
+    });
     history.push("/login");
+  };
+};
+
+export const changeInfoApi = (userChangeInfo: UserChangeInfoModel) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.put("/Users/editUser", userChangeInfo);
+    const action = changeInfoAction(result.data.content);
+    dispatch(action);
+    notification.success({
+      message: "Change information successfully",
+    });
   };
 };
