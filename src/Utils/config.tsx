@@ -93,8 +93,10 @@ http.interceptors.request.use(
     //Cấu hình tất cả header gửi đi đều có bearer token (token authorization đăng nhập)
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+      Authorization: `Bearer ${settings.getStore(ACCESS_TOKEN)}`,
       TokenCybersoft: TOKEN_CYBERSOFT,
+      "Content-Type": "application/json",
+      charset: "utf-8",
     };
 
     return config;

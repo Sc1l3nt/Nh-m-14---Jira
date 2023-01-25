@@ -21,6 +21,7 @@ import ProjectManagement from "./Pages/ProjectManagement/ProjectManagement";
 
 import { store } from "./Redux/configStore";
 import Profile from "./Pages/Profile/Profile";
+import ListUser from "./Pages/ListUser/ListUser";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -40,6 +41,7 @@ root.render(
           <Route path="*" element={<Navigate to="projectmanagement" />} />
           <Route path="projectmanagement" element={<ProjectManagement />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="users" element={<ListUser />} />
         </Route>
       </Routes>
     </HistoryRouter>
