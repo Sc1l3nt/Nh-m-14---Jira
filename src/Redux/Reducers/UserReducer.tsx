@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ACCESS_TOKEN, http } from "../../Utils/config";
+import { http } from "../../Utils/config";
 import { DispatchType } from "../configStore";
 import { history } from "../../index";
 import { notification } from "antd";
-import axios from "axios";
 
 export interface UserLoginModel {
   email: string;
@@ -55,6 +54,9 @@ const UserReducer = createSlice({
     getAllUserAction: (state, action) => {
       state.arrayUser = action.payload;
     },
+    deleteUserAction: (state, action) => {
+      state.arrayUser = action.payload;
+    },
   },
 });
 
@@ -63,6 +65,7 @@ export const {
   registerAction,
   changeInfoAction,
   getAllUserAction,
+  deleteUserAction,
 } = UserReducer.actions;
 
 export default UserReducer.reducer;
@@ -107,20 +110,21 @@ export const changeInfoApi = (userChangeInfo: UserChangeInfoModel) => {
 
 export const getAllUserApi = () => {
   return async (dispatch: DispatchType) => {
-    //const result = await http.get("/Users/getUser");
-    const result = await axios({
-      url: "https://jiranew.cybersoft.edu.vn/api/Users/getUser",
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        TokenCybersoft:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJGcm9udGVuZCA3MyIsIkhldEhhblN0cmluZyI6IjE5LzA1LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4NDQ1NDQwMDAwMCIsIm5iZiI6MTY1OTg5MTYwMCwiZXhwIjoxNjg0NjAyMDAwfQ.49m9-EoDr6zr7UOk_79hfcvJWKI_s0Wy_g40ossfl9c",
-      },
-    })
-      .then((res) => {
-        const action = getAllUserAction(res.data.content);
-        dispatch(action);
-      })
-      .catch((err) => console.log(err));
+    const result = await http.get("/Users/getUser");
+    const action = getAllUserAction(result.data.content);
+    dispatch(action);
+  };
+};
+
+export const deleteUserApi = (userId: number) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.delete(`/Users/deleteUser?id=${userId}`);
+    const action = deleteUserAction(result.data.content);
+    dispatch(action);
+    notification.success({
+      message: "Deleted user successfully",
+    });
+    dispatch(getAllUserApi());
+    window.location.reload();
   };
 };
