@@ -14,6 +14,7 @@ import type { ColumnsType, TableProps } from "antd/es/table";
 import { useDispatch, useSelector } from "react-redux";
 import { DispatchType, RootState } from "../../Redux/configStore";
 import {
+  changeInfoApi,
   deleteUserApi,
   getAllUserApi,
   UserModel,
@@ -126,8 +127,6 @@ const ListUser = (props: Props) => {
     setShowEditUserModal(true);
   };
 
-  console.log("re-render", user);
-
   const handleOk = () => {
     setShowEditUserModal(false);
     if (!passWord) {
@@ -136,13 +135,13 @@ const ListUser = (props: Props) => {
       });
     } else {
       const updatedData = {
-        userId: user.userId,
+        id: user.userId.toString(),
         email: email || user.email,
         name: name || user.name,
         phoneNumber: phoneNumber || user.phoneNumber,
         passWord: passWord,
       };
-      console.log(updatedData);
+      dispatch(changeInfoApi(updatedData));
     }
   };
 
