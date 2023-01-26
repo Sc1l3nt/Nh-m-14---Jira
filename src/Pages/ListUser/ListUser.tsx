@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, Popconfirm, Space, Table } from "antd";
+import {
+  Alert,
+  Button,
+  Input,
+  Modal,
+  notification,
+  Popconfirm,
+  Space,
+  Table,
+  Typography,
+} from "antd";
 import type { ColumnsType, TableProps } from "antd/es/table";
 import { useDispatch, useSelector } from "react-redux";
 import { DispatchType, RootState } from "../../Redux/configStore";
@@ -8,12 +18,7 @@ import {
   getAllUserApi,
   UserModel,
 } from "../../Redux/Reducers/userReducer";
-import {
-  DeleteFilled,
-  DeleteOutlined,
-  EditOutlined,
-  EditTwoTone,
-} from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 interface DataType {
   key: React.Key;
@@ -28,19 +33,26 @@ type Props = {};
 const ListUser = (props: Props) => {
   const { arrayUser } = useSelector((state: RootState) => state.userReducer);
   const dispatch: DispatchType = useDispatch();
-  const [state, setState] = useState({ filteredInfo: null, sortedInfo: null });
   const [selectedUser, setSelectedUser] = useState(null);
   const [showEditUserModal, setShowEditUserModal] = useState(false);
 
-  const data = [
-    {
-      key: "1",
-      name: "John",
-      userId: 112,
-      email: "john@example.com",
-      phoneNumber: "0123456789",
-    },
-  ];
+  // handle edit user
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [passWord, setPassWord] = useState("");
+
+  const data = {
+    key: "1",
+    name: "Mike",
+    userId: 1,
+    email: "mike@gmail.com",
+    phoneNumber: "11111111",
+    avatar: "meomeo",
+  };
+
+  var user: UserModel = selectedUser || data;
+
   const columns: ColumnsType<DataType> = [
     {
       title: "No.",
@@ -114,7 +126,27 @@ const ListUser = (props: Props) => {
     setShowEditUserModal(true);
   };
 
-  const handleCancelEditUser = () => {
+  console.log("re-render", user);
+
+  const handleOk = () => {
+    setShowEditUserModal(false);
+    if (!passWord) {
+      notification.warning({
+        message: "Please enter password",
+      });
+    } else {
+      const updatedData = {
+        userId: user.userId,
+        email: email || user.email,
+        name: name || user.name,
+        phoneNumber: phoneNumber || user.phoneNumber,
+        passWord: passWord,
+      };
+      console.log(updatedData);
+    }
+  };
+
+  const handleCancel = () => {
     setShowEditUserModal(false);
   };
 
@@ -125,6 +157,40 @@ const ListUser = (props: Props) => {
         dataSource={arrayUser || undefined}
         style={{ width: "90vw" }}
       />
+      <Modal
+        title="Basic Modal"
+        open={showEditUserModal}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okText="Update"
+      >
+        <Typography.Text>Id</Typography.Text>
+        <Input value={user.userId} id="id" disabled />
+        <Typography.Text>Email</Typography.Text>
+        <Input
+          defaultValue={user.email}
+          id="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Typography.Text>Name</Typography.Text>
+        <Input
+          defaultValue={user.name}
+          id="name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Typography.Text>Phone</Typography.Text>
+        <Input
+          defaultValue={user.phoneNumber}
+          id="phoneNumber"
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+        <Typography.Text>Password</Typography.Text>
+        <Input
+          defaultValue=""
+          id="passWord"
+          onChange={(e) => setPassWord(e.target.value)}
+        />
+      </Modal>
     </>
   );
 };
