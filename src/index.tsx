@@ -17,15 +17,18 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import HomeTemplate from "./Templates/HomeTemplate";
 import LoginTemplate from "./Templates/LoginTemplate";
-import ProjectManagement from "./Pages/ProjectManagement/ProjectManagement";
 
 import { store } from "./Redux/configStore";
 import ReponsiveItem from "./Components/ReponsiveItem";
 import LoginTemplateMobile from "./Templates/LoginTemplateMobile";
 import HomeTemplateMobile from "./Templates/HomeTemplateMobile";
-import Test from "./Pages/Test";
 import Profile from "./Pages/Profile/Profile";
 import ListUser from "./Pages/ListUser/ListUser";
+import Projects from "./Pages/Projects/Projects";
+import ProjectNew from "./Pages/Projects/New/ProjectNew";
+import ProjectDetail from "./Pages/Projects/Detail/ProjectDetail";
+import ProjectEdit from "./Pages/Projects/Edit/ProjectEdit";
+import Tasks from "./Pages/Tasks/Tasks";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -59,7 +62,13 @@ root.render(
           }
         >
           <Route path="*" element={<Navigate to="projectmanagement" />} />
-          <Route path="projectmanagement" element={<ProjectManagement />} />
+          {/* PROJECT ROUTE  */}
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/new" element={<ProjectNew />} />
+          <Route path="projects/:id" element={<ProjectDetail />} />
+          <Route path="projects/:id/edit" element={<ProjectEdit />} />
+          <Route path="projects/:projectId/board" element={<Tasks />} />
+          {/* PROJECT ROUTE  */}
           <Route path="profile" element={<Profile />} />
           <Route path="users" element={<ListUser />} />
         </Route>
