@@ -3,8 +3,6 @@ import { LockOutlined } from "@ant-design/icons";
 import { Button, Input, Checkbox, Form } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { NavLink } from "react-router-dom";
-import { useFormik } from "formik";
-import * as yup from "yup";
 import { DispatchType } from "../Redux/configStore";
 import { useDispatch } from "react-redux";
 import { loginApi, registerApi } from "../Redux/Reducers/userReducer";
@@ -36,7 +34,7 @@ const FormInput = (props: Props) => {
 
   const handleSubmit = () => {
     if (!passwordConfirm) {
-      const actionLogin = loginApi({ email, password });
+      const actionLogin = loginApi({ email, passWord: password });
       dispatch(actionLogin);
     } else {
       const actionRegister = registerApi({
