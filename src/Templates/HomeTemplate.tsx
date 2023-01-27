@@ -12,7 +12,7 @@ const HomeTemplate = (props: Props) => {
   return (
     <div className="template">
       <Header />
-      <PopUp/>
+      <PopUp />
       <div className="d-flex my-4 mx-1">
         <div className="item-left item">
           <Menu />
