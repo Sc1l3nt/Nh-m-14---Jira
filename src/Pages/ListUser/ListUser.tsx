@@ -167,19 +167,19 @@ const ListUser = (props: Props) => {
         <Input value={user.userId} id="id" disabled />
         <Typography.Text>Email</Typography.Text>
         <Input
-          defaultValue={user.email}
+          defaultValue={email || user.email}
           id="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <Typography.Text>Name</Typography.Text>
         <Input
-          defaultValue={user.name}
+          defaultValue={name || user.name}
           id="name"
           onChange={(e) => setName(e.target.value)}
         />
         <Typography.Text>Phone</Typography.Text>
         <Input
-          defaultValue={user.phoneNumber}
+          defaultValue={phoneNumber || user.phoneNumber}
           id="phoneNumber"
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
