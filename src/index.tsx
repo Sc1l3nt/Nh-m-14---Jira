@@ -20,6 +20,10 @@ import LoginTemplate from "./Templates/LoginTemplate";
 import ProjectManagement from "./Pages/ProjectManagement/ProjectManagement";
 
 import { store } from "./Redux/configStore";
+import ReponsiveItem from "./Components/ReponsiveItem";
+import LoginTemplateMobile from "./Templates/LoginTemplateMobile";
+import HomeTemplateMobile from "./Templates/HomeTemplateMobile";
+import Test from "./Pages/Test";
 import Profile from "./Pages/Profile/Profile";
 import ListUser from "./Pages/ListUser/ListUser";
 
@@ -33,16 +37,33 @@ root.render(
   <Provider store={store}>
     <HistoryRouter history={history}>
       <Routes>
-        <Route path="/" element={<LoginTemplate />}>
+        <Route
+          path="/"
+          element={
+            <ReponsiveItem
+              component={LoginTemplate}
+              componentMobile={LoginTemplateMobile}
+            />
+          }
+        >
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
-        <Route path="/" element={<HomeTemplate />}>
+        <Route
+          path="/"
+          element={
+            <ReponsiveItem
+              component={HomeTemplate}
+              componentMobile={HomeTemplateMobile}
+            />
+          }
+        >
           <Route path="*" element={<Navigate to="projectmanagement" />} />
           <Route path="projectmanagement" element={<ProjectManagement />} />
           <Route path="profile" element={<Profile />} />
           <Route path="users" element={<ListUser />} />
         </Route>
+        <Route index element={<Navigate to="projectmanagement" />} />
       </Routes>
     </HistoryRouter>
   </Provider>

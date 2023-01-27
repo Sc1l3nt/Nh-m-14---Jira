@@ -1,17 +1,25 @@
 import React from "react";
+import Search from "../Pages/Search/Searchs";
 import "./Header.scss";
 
 type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="header px-5 py-3 border bg-primary">
+    <div className="header px-5 py-3 bg-primary">
       <div className="d-flex position-relative">
         <div className="logo border border-3 rounded-circle border-primary position-absolute bg-light">
-          <img className="w-100 p-3" src="../images/Jira-Logo.png" alt="" />
+          <div className="border border-3 rounded-circle border-light">
+            <div className="border border-3 rounded-circle border-primary">
+              <img className="w-100 p-2" src="../images/Jira-Logo.png" alt="" />
+            </div>
+          </div>
         </div>
         <h2 className="title text-light">Jira</h2>
-        <div className="user ms-auto">
+        <div className="ms-auto me-3">
+          <Search />
+        </div>
+        <div className="user">
           <button className="bg-transparent d-flex">
             <div className="border rounded-circle border-light border-2">
               <div className="btn rounded-circle border-primary px-2 bg-light border-2">
