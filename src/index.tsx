@@ -29,6 +29,7 @@ import ProjectNew from "./Pages/Projects/New/ProjectNew";
 import ProjectDetail from "./Pages/Projects/Detail/ProjectDetail";
 import ProjectEdit from "./Pages/Projects/Edit/ProjectEdit";
 import Tasks from "./Pages/Tasks/Tasks";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -61,7 +62,7 @@ root.render(
             />
           }
         >
-          <Route path="*" element={<Navigate to="projectmanagement" />} />
+          <Route path="*" element={<PageNotFound />} />
           {/* PROJECT ROUTE  */}
           <Route path="projects" element={<Projects />} />
           <Route path="projects/new" element={<ProjectNew />} />
@@ -72,7 +73,7 @@ root.render(
           <Route path="profile" element={<Profile />} />
           <Route path="users" element={<ListUser />} />
         </Route>
-        <Route index element={<Navigate to="projectmanagement" />} />
+        <Route index element={<Navigate to="projects" />} />
       </Routes>
     </HistoryRouter>
   </Provider>
