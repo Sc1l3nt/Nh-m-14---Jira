@@ -3,8 +3,6 @@ import { LockOutlined, UserOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Button, Input, Checkbox, Form } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { NavLink } from "react-router-dom";
-import { useFormik } from "formik";
-import * as yup from "yup";
 import { DispatchType } from "../Redux/configStore";
 import { useDispatch } from "react-redux";
 import { loginApi, registerApi } from "../Redux/Reducers/userReducer";
@@ -34,24 +32,9 @@ const FormInput = (props: Props) => {
 
   const dispatch: DispatchType = useDispatch();
 
-  const onFinish = (values: any) => {
-    if (!passwordConfirm) {
-      const actionLogin = loginApi({ email, password });
-      dispatch(actionLogin);
-    } else {
-      const actionRegister = registerApi({
-        email,
-        password,
-        name,
-        phoneNumber,
-      });
-      dispatch(actionRegister);
-    }
-  };
-
   const handleSubmit = () => {
     if (!passwordConfirm) {
-      const actionLogin = loginApi({ email, password });
+      const actionLogin = loginApi({ email, passWord: password });
       dispatch(actionLogin);
     } else {
       const actionRegister = registerApi({
@@ -68,7 +51,6 @@ const FormInput = (props: Props) => {
     <Form 
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: window.innerHeight }}
-      onFinish={onFinish}
     >
       <h1>Welcome</h1>
       {listRender?.map((item, i) => {

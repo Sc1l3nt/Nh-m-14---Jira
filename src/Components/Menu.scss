@@ -1,80 +1,80 @@
-@import '../index.scss';
+@import "../index.scss";
 
 .menu {
+  width: 70px;
+  transition: all 1s;
+
+  .link {
+    position: relative;
+    z-index: 100;
+    color: $primary;
+    margin-top: $sp-5;
+    font-size: $fs-5;
+
+    .title {
+      position: absolute;
+      top: 0;
+      left: $sp-4 * 2;
+      width: 200px;
+      font-size: $fs-6;
+      opacity: 0;
+      transform: translateX(-500px);
+      transition: all 2s;
+    }
+
+    &.active {
+      color: $light;
+    }
+  }
+
+  .check {
+    z-index: 50;
     width: 70px;
+    height: 40px;
+    top: 37px;
+    left: 5px;
+    background-color: $primary;
+    border: 2px solid $primary;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     transition: all 1s;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -12px;
+      right: -10px;
+      border-bottom-right-radius: 20px;
+      border-right: 10px solid $primary;
+      border-bottom: 10px solid $primary;
+      transition: all 1s;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 29px;
+      right: -10px;
+      border-top-right-radius: 20px;
+      border-right: 10px solid $primary;
+      border-top: 10px solid $primary;
+      transition: all 1s;
+    }
+  }
 
+  &:hover {
+    width: 250px;
     .link {
-        position: relative;
-        z-index: 100;
-        color: $primary;
-        margin-top: $sp-5;
-        font-size: $fs-5;
-
-        .title {
-            position: absolute;
-            top: 0;
-            left: $sp-4*2;
-            width: 200px;
-            font-size: $fs-6;
-            opacity: 0;
-            transform: translateX(-500px);
-            transition: all 2s;
-        }
-
-        &.active{
-            color: $light;
-        }
+      .title {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
-    .check{
-        z-index: 50;
-        width: 70px;
-        height: 40px;
-        top: 37px;
-        left: 5px;
-        background-color: $primary;
-        border: 2px solid $primary;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        transition: all 1s;
-        &::before{
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: -12px;
-            right: -10px;
-            border-bottom-right-radius: 20px;
-            border-right: 10px solid $primary;
-            border-bottom: 10px solid $primary;
-            transition: all 1s;
-        }
-        &::after{
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 29px;
-            right: -10px;
-            border-top-right-radius: 20px;
-            border-right: 10px solid $primary;
-            border-top: 10px solid $primary;
-            transition: all 1s;
-        }
+    .check {
+      width: 250px;
     }
-
-    &:hover {
-        width: 250px;
-        .link {
-            .title {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .check{
-            width: 250px;
-        }
-    }
+  }
 }

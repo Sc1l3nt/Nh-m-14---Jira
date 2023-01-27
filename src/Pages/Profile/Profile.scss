@@ -1,0 +1,10 @@
+li {
+  list-style: none;
+  transition: all 0.3s;
+  font-weight: 500;
+  &:hover {
+    color: rgb(219, 219, 252);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+}
