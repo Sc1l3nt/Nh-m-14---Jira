@@ -1,19 +1,19 @@
 # CAPSTONE - DỰ ÁN CUỐI KHÓA FE73 - CYBERSOFT
 
-### Function
-## Comment
+## Function
+### Comment
 
-## Priority
+### Priority
 
-## Project
+### Project
 
-## Project Category
+### Project Category
 
-## Status
+### Status
 
-## Task Type
+### Task Type
 
-## User
+### User
 - Sign In
 - Sign Up
 - Edit User
