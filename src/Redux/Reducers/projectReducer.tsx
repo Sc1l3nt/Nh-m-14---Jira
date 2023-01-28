@@ -24,11 +24,18 @@ const projectReducer = createSlice({
     searchProjectAction: (state, action) => {
       state.projectList = action.payload;
     },
+    getAllProjectCategoryAction: (state, action) => {
+      state.projectCategories = action.payload;
+    },
   },
 });
 
-export const { getAllProjectAction, deleteProjectAction, searchProjectAction } =
-  projectReducer.actions;
+export const {
+  getAllProjectAction,
+  deleteProjectAction,
+  searchProjectAction,
+  getAllProjectCategoryAction,
+} = projectReducer.actions;
 
 export default projectReducer.reducer;
 
@@ -57,6 +64,14 @@ export const searchProjectApi = (keyword: any) => {
   return async (dispatch: DispatchType) => {
     const result = await http.get(`/Project/getAllProject?keyword=${keyword}`);
     const action = getAllProjectAction(result.data.content);
+    dispatch(action);
+  };
+};
+
+export const getAllProjectCategoryApi = () => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.get(`/ProjectCategory`);
+    const action = getAllProjectCategoryAction(result.data.content);
     dispatch(action);
   };
 };
