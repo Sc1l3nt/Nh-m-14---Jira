@@ -9,6 +9,7 @@
 - Create Task
 
 ### Project Category
+- Get All Project Categories
 
 ### Status
 
