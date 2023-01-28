@@ -70,14 +70,7 @@ const Projects = (props: Props) => {
   }, []);
 
   const handleSearch = (e: any) => {
-    // let params = {};
-
-    // if (e.target.value.length > 0) {
-    //   params = { keyword: e.target.value };
-    // }
-
     setValueSearch(e.target.value);
-
     // if (debounceSearchRef.current) {
     //   clearTimeout(debounceSearchRef.current);
     // }
