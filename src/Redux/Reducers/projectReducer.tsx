@@ -76,6 +76,9 @@ const projectReducer = createSlice({
     getProjectDetailAction: (state, action) => {
       state.projectDetail = action.payload;
     },
+    updateProjectAction: (state, action) => {
+      state.projectDetail = action.payload;
+    },
   },
 });
 
@@ -87,6 +90,7 @@ export const {
   createProjectAction,
   createProjectAuthorizeAction,
   getProjectDetailAction,
+  updateProjectAction,
 } = projectReducer.actions;
 
 export default projectReducer.reducer;

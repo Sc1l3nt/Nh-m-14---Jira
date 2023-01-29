@@ -45,6 +45,9 @@ const UserReducer = createSlice({
     loginAction: (state, action) => {
       state.userLogin = action.payload;
     },
+    loginFacebookAction: (state, action) => {
+      state.userLogin = action.payload;
+    },
     registerAction: (state, action) => {
       state.userProfile = action.payload;
     },
@@ -57,6 +60,9 @@ const UserReducer = createSlice({
     deleteUserAction: (state, action) => {
       state.arrayUser = action.payload;
     },
+    getUserByProjectIdAction: (state, action) => {
+      state.userProfile = action.payload;
+    },
   },
 });
 
@@ -66,6 +72,8 @@ export const {
   changeInfoAction,
   getAllUserAction,
   deleteUserAction,
+  getUserByProjectIdAction,
+  loginFacebookAction,
 } = UserReducer.actions;
 
 export default UserReducer.reducer;
@@ -73,6 +81,21 @@ export default UserReducer.reducer;
 export const loginApi = (userLogin: UserLoginModel) => {
   return async (dispatch: DispatchType) => {
     const result = await http.post("/Users/signin", userLogin);
+    const action = loginAction(result.data.content);
+    dispatch(action);
+    localStorage.setItem("user_login", JSON.stringify(result.data.content));
+    localStorage.setItem("access_token", result.data.content.accessToken);
+    notification.success({
+      message: "Login successfully",
+    });
+    //login successfully, redirect to profile page
+    history.push("/profile");
+  };
+};
+
+export const loginFacebookApi = (facebookToken: string) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.post("/Users/facebooklogin", facebookToken);
     const action = loginAction(result.data.content);
     dispatch(action);
     localStorage.setItem("user_login", JSON.stringify(result.data.content));
@@ -126,5 +149,15 @@ export const deleteUserApi = (userId: number) => {
     });
     dispatch(getAllUserApi());
     window.location.reload();
+  };
+};
+
+export const getUserByProjectIdApi = (projectId: number) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.get(
+      `Users/getUserByProjectId?idProject=${projectId}`
+    );
+    const action = getUserByProjectIdAction(result.data.content);
+    dispatch(action);
   };
 };
