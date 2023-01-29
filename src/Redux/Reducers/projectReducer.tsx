@@ -11,6 +11,46 @@ const initialState = {
   error: null,
 };
 
+export interface CategoryModel {
+  id: number;
+  projectCategoryName: string;
+}
+
+// ProjectModel == ProjectDetailModel
+export interface ProjectModel {
+  members: [];
+  creator: {
+    id: number;
+    name: string;
+  };
+  id: number;
+  projectName: string;
+  description: string;
+  categoryId: number;
+  categoryName: string;
+  alias: string;
+  deleted: boolean;
+}
+
+export interface MemberModel {
+  userId: number;
+  name: string;
+  avatar: string;
+}
+
+export interface ProjectCreateModel {
+  projectName: string;
+  description: string;
+  categoryId: number;
+}
+
+export interface ProjectEditModel {
+  id: number;
+  projectName: string;
+  description: string;
+  categoryId: any;
+}
+
 const projectReducer = createSlice({
   name: "projectReducer",
   initialState,
@@ -27,6 +67,15 @@ const projectReducer = createSlice({
     getAllProjectCategoryAction: (state, action) => {
       state.projectCategories = action.payload;
     },
+    createProjectAction: (state, action) => {
+      state.projectDetail = action.payload;
+    },
+    createProjectAuthorizeAction: (state, action) => {
+      state.projectDetail = action.payload;
+    },
+    getProjectDetailAction: (state, action) => {
+      state.projectDetail = action.payload;
+    },
   },
 });
 
@@ -35,6 +84,9 @@ export const {
   deleteProjectAction,
   searchProjectAction,
   getAllProjectCategoryAction,
+  createProjectAction,
+  createProjectAuthorizeAction,
+  getProjectDetailAction,
 } = projectReducer.actions;
 
 export default projectReducer.reducer;
@@ -54,9 +106,7 @@ export const deleteProjectApi = (projectId: number) => {
     );
     const action = deleteProjectAction(result.data.content);
     dispatch(action);
-    notification.success({
-      message: `Project deleted successfully`,
-    });
+    window.location.reload();
   };
 };
 
@@ -73,5 +123,16 @@ export const getAllProjectCategoryApi = () => {
     const result = await http.get(`/ProjectCategory`);
     const action = getAllProjectCategoryAction(result.data.content);
     dispatch(action);
+  };
+};
+
+export const createProjectAuthorizeApi = (project: ProjectCreateModel) => {
+  return async (dispatch: DispatchType) => {
+    const result = await http.post(`Project/createProjectAuthorize`, project);
+    const action = createProjectAuthorizeAction(result.data.content);
+    dispatch(action);
+    notification.success({
+      message: `Project created successfully`,
+    });
   };
 };

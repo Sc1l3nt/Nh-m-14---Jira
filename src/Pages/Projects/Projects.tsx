@@ -27,31 +27,12 @@ import { DispatchType, RootState } from "../../Redux/configStore";
 import {
   deleteProjectApi,
   getAllProjectApi,
+  MemberModel,
+  ProjectModel,
   searchProjectApi,
 } from "../../Redux/Reducers/projectReducer";
 
 type Props = {};
-
-export interface ProjectModel {
-  members: [];
-  creator: {
-    id: number;
-    name: string;
-  };
-  id: number;
-  projectName: string;
-  description: string;
-  categoryId: number;
-  categoryName: string;
-  alias: string;
-  deleted: boolean;
-}
-
-export interface MemberModel {
-  userId: number;
-  name: string;
-  avatar: string;
-}
 
 const Projects = (props: Props) => {
   const [valueSearch, setValueSearch] = useState("");
