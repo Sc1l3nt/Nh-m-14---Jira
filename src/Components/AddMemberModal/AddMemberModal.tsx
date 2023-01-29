@@ -13,7 +13,11 @@ import {
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DispatchType, RootState } from "../../Redux/configStore";
-import { MemberModel } from "../../Redux/Reducers/projectReducer";
+import {
+  assignUserToProjectApi,
+  MemberModel,
+  removeUserFromProjectApi,
+} from "../../Redux/Reducers/projectReducer";
 import {
   getAllUserApi,
   getUserByProjectIdApi,
@@ -44,21 +48,20 @@ const AddMemberModal = (props: Props) => {
   }, [dispatch, project.projectId]);
 
   useEffect(() => {
-    const clonedUsers = [...(arrayUser || [])];
-    // remove members from user list
-    for (const member of projectMembers) {
-      const index = clonedUsers.findIndex((item: UserModel) => {
-        return item.userId === member.userId;
-      });
-      clonedUsers.splice(index, 1);
-    }
-    usersRef.current = [...clonedUsers];
-
-    if (!searchRef.current) {
-      setFilteredUsers([...clonedUsers]);
-    } else {
-      handleSearchUsers();
-    }
+    // const clonedUsers = [...(arrayUser || [])];
+    // // remove members from user list
+    // for (const member of projectMembers) {
+    //   const index = clonedUsers.findIndex((item: UserModel) => {
+    //     return item.userId === member.userId;
+    //   });
+    //   clonedUsers.splice(index, 1);
+    // }
+    // usersRef.current = [...clonedUsers];
+    // if (!searchRef.current) {
+    //   setFilteredUsers([...clonedUsers]);
+    // } else {
+    //   handleSearchUsers();
+    // }
   }, [projectMembers, arrayUser]);
 
   useEffect(() => {
@@ -84,28 +87,14 @@ const AddMemberModal = (props: Props) => {
 
   const addMemberToProject = (userId: number) => () => {
     const data = { projectId: props.project.id, userId };
-    dispatch(
-      assignUserToProject(data, () => {
-        dispatch(fetchUsersByProject(props.project.id));
-
-        if (props.onFetchProject) {
-          props.onFetchProject();
-        }
-      })
-    );
+    dispatch(assignUserToProjectApi(data));
+    dispatch(getUserByProjectIdApi(props.project.id));
   };
 
-  const removeMemberFromProject = (userId) => () => {
+  const removeMemberFromProject = (userId: number) => () => {
     const data = { projectId: props.project.id, userId };
-    dispatch(
-      removeUserFromProject(data, () => {
-        dispatch(fetchUsersByProject(props.project.id));
-
-        if (props.onFetchProject) {
-          props.onFetchProject();
-        }
-      })
-    );
+    dispatch(removeUserFromProjectApi(props.project.id, userId));
+    dispatch(getUserByProjectIdApi(props.project.id));
   };
 
   const handleGoToProjectsButtonClick = () => {
@@ -114,28 +103,25 @@ const AddMemberModal = (props: Props) => {
   };
 
   const handleSearchUsers = (e: any) => {
-    const value = searchRef.current?.input.value
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
-
-    const clonedUsers = [...usersRef.current];
-
-    let foundUsers = [];
-
-    for (const i in clonedUsers) {
-      if (
-        clonedUsers[i].name
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase()
-          .includes(value)
-      ) {
-        foundUsers.push(clonedUsers[i]);
-      }
-    }
-
-    setFilteredUsers([...foundUsers]);
+    // const value = searchRef.current?.input.value
+    //   .normalize("NFD")
+    //   .replace(/[\u0300-\u036f]/g, "")
+    //   .toLowerCase();
+    // const clonedUsers = [...usersRef.current];
+    // let foundUsers = [];
+    // for (const i in clonedUsers) {
+    //   if (
+    //     clonedUsers[i].name
+    //       .normalize("NFD")
+    //       .replace(/[\u0300-\u036f]/g, "")
+    //       .toLowerCase()
+    //       .includes(value)
+    //   ) {
+    //     foundUsers.push(clonedUsers[i]);
+    //   }
+    // }
+    // setFilteredUsers([...foundUsers]);
+    console.log("do nothing");
   };
 
   return (
@@ -147,8 +133,7 @@ const AddMemberModal = (props: Props) => {
             <span className="text-blue-700">{props.project.projectName}</span>
           </Typography.Title>
         }
-        visible={props.visible}
-        maskStyle={{ zIndex: 1050 }}
+        open={props.visible}
         wrapClassName="z-modal"
         className="z-modal"
         centered
@@ -209,7 +194,7 @@ const AddMemberModal = (props: Props) => {
                 padding: "8px 24px",
               }}
               itemLayout="horizontal"
-              dataSource={filteredUsers}
+              dataSource={arrayUser || []}
               renderItem={(item: UserModel) => (
                 <List.Item>
                   <List.Item.Meta
@@ -223,6 +208,7 @@ const AddMemberModal = (props: Props) => {
                     <Button
                       onClick={addMemberToProject(item.userId)}
                       className="flex justify-center items-center h-8 bg-blue-700 hover:bg-blue-600 focus:bg-blue-600 text-white hover:text-white focus:text-white font-medium py-1.5 px-3 rounded border-0"
+                      type="primary"
                     >
                       Add
                     </Button>

@@ -32,6 +32,20 @@ export interface UserModel {
   phoneNumber: string;
 }
 
+export interface AddUserModel {
+  userId: number;
+  projectId: number;
+}
+
+// export interface UserState {
+//   userLogin: UserLoginResult;
+//   user: USER[];
+//   addUser: AddUser;
+//   ModalOpen: boolean;
+//   userByProjectId: UserByProjectId[];
+//   userRegister: RegisterModel;
+// }
+
 const initialState = {
   userLogin: null,
   userProfile: null,

@@ -10,7 +10,15 @@ import {
 } from "../../../Redux/Reducers/projectReducer";
 import { Editor } from "@tinymce/tinymce-react";
 import AddMemberModal from "../../../Components/AddMemberModal/AddMemberModal";
-import { Breadcrumb, Button, Form, Input, Select, Typography } from "antd";
+import {
+  Breadcrumb,
+  Button,
+  Form,
+  Input,
+  Modal,
+  Select,
+  Typography,
+} from "antd";
 import { Link } from "react-router-dom";
 
 type Props = {};
@@ -170,11 +178,13 @@ const ProjectNew = (props: Props) => {
       </Form>
 
       {projectDetail && (
-        <AddMemberModal
-          visible={showAddMemberModal}
-          onCancel={handleCancel}
-          project={projectDetail}
-        />
+        <>
+          <AddMemberModal
+            visible={showAddMemberModal}
+            onCancel={handleCancel}
+            project={projectDetail}
+          />
+        </>
       )}
     </div>
   );
