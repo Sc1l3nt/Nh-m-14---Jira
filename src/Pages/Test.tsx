@@ -1,6 +1,7 @@
-import { CaretDownOutlined, CaretUpOutlined, CheckCircleFilled, DownOutlined, EditFilled, MinusOutlined, PlusSquareFilled, UpOutlined, WarningFilled } from '@ant-design/icons';
-import { Button, Col, Form, Input, InputNumber, Modal, Row, Select } from 'antd';
+import { CaretDownOutlined, CaretUpOutlined, CheckCircleFilled, ClockCircleOutlined, DownOutlined, EditFilled, MinusOutlined, PlusSquareFilled, UpOutlined, WarningFilled } from '@ant-design/icons';
+import { Button, Col, Form, Input, InputNumber, Modal, Progress, Row, Select } from 'antd';
 import { RequiredMark } from 'antd/es/form/Form';
+import FormItem from 'antd/es/form/FormItem';
 import React, { useState } from 'react'
 
 type Props = {}
@@ -138,7 +139,7 @@ const Test = (props: Props) => {
                                             </div>
                                         </Option>
                                         <Option value="Option4">
-                                            <div className='text-warning'>
+                                            <div className='text-success'>
                                                 <div>DONE</div>
                                             </div>
                                         </Option>
@@ -167,23 +168,36 @@ const Test = (props: Props) => {
                                     rules={[{ required: true, message: 'Please choose the reporter' }]}
                                 >
                                     <Input.Group>
-                                        <Select defaultValue="Option1">
+                                        <Select defaultValue="Option1" showArrow={false} style={{width: '50%'}}>
                                             <Option value="Option1">Option 1</Option>
                                             <Option value="Option2">Option 2</Option>
                                             <Option value="Option3">Option 3</Option>
                                         </Select>
                                     </Input.Group>
                                 </Form.Item>
-
                                 <Form.Item
-                                    name="estimate"
-                                    label="ORIGINAL ESTIMATE (HOURS)"
-                                    rules={[{ required: true, message: 'Please enter the estimate' }]}
-                                >
-                                    <InputNumber defaultValue={3} controls={false} />
-
+                                    name="time"
+                                    label="TIME TRACKING"
+                                    rules={[{ required: true, message: 'Please enter the estimate' }]}>
+                                    <div className='d-flex'>
+                                        <div className='fs-5' style={{width: '15%'}}>
+                                            <ClockCircleOutlined />
+                                            <div className='fs-6'>3h</div>
+                                        </div>
+                                        <div className='' style={{width: '85%'}}>
+                                            <Progress percent={30} showInfo={false} />
+                                            <div className='d-flex justify-content-between'>
+                                                <div>1<span>h logged</span></div>
+                                                <div className=''>2<span>h remaining</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </Form.Item>
                             </Form>
+                            <div className='changer-time pt-4 border-top'>
+                                <div>Creacte at <span>0 days</span> ago</div>
+                                <div>Updated at <span>0 days</span> ago</div>
+                            </div>
                         </div>
                     </Col>
                 </Row>

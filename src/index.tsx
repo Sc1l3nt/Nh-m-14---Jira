@@ -62,6 +62,7 @@ root.render(
           <Route path="projectmanagement" element={<ProjectManagement />} />
           <Route path="profile" element={<Profile />} />
           <Route path="users" element={<ListUser />} />
+          <Route path="test" element={<Test />} />
         </Route>
         <Route index element={<Navigate to="projectmanagement" />} />
       </Routes>
