@@ -3,16 +3,21 @@ import { Button, Col, Form, Input, InputNumber, Modal, Progress, Row, Select } f
 import { RequiredMark } from 'antd/es/form/Form';
 import FormItem from 'antd/es/form/FormItem';
 import React, { useState } from 'react'
+import TimeTracking from '../Components/TimeTracking';
 
 type Props = {}
 
 const { TextArea } = Input;
 const { Option } = Select;
+const OPTIONS = ['Option 1', 'Option 2', 'Option 3']
 
 const Test = (props: Props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [name, setName] = useState('NAME');
     const [description, setDescription] = useState('Description');
+    const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+    const filteredOptions = OPTIONS.filter((o) => !selectedItems.includes(o));
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -45,6 +50,17 @@ const Test = (props: Props) => {
                                 <Form.Item label="Description" required>
                                     <TextArea value={description} onChange={(e) => { console.log(e.target.value) }} />
                                 </Form.Item>
+                                <hr />
+                                <Form.Item label="Comments" required>
+                                    <div className='d-flex'>
+                                        <div className='icon me-4' style={{width: '10%'}}>
+                                            <div className='rounded-circle p-2 bg-primary text-light'>NA</div>
+                                        </div>
+                                        <div className='comment' style={{width: '90%'}}>
+                                            <TextArea/>
+                                        </div>
+                                    </div>
+                                </Form.Item>
                             </Form>
                         </div>
                     </Col>
@@ -59,7 +75,7 @@ const Test = (props: Props) => {
                                             rules={[{ required: true, message: 'Please enter issue type' }]}
                                         >
                                             <Input.Group>
-                                                <Select defaultValue="Option1">
+                                                <Select defaultValue="Option1" className='w-75' showArrow={false}>
                                                     <Option value="Option1">
                                                         <div className='text-success'>
                                                             <CheckCircleFilled className='icon fs-5' /><span className='title ms-2'>Task</span>
@@ -86,7 +102,7 @@ const Test = (props: Props) => {
                                             rules={[{ required: true, message: 'Please enter priority' }]}
                                         >
                                             <Input.Group>
-                                                <Select defaultValue="Option1">
+                                                <Select defaultValue="Option1" className='w-100' showArrow={false}>
                                                     <Option value="Option1">
                                                         <div className='text-danger'>
                                                             <CaretUpOutlined className='icon fs-5' /><span className='title ms-2'>Highest</span>
@@ -122,7 +138,7 @@ const Test = (props: Props) => {
                                     label="STATUS"
                                     rules={[{ required: true, message: 'Please enter issue status' }]}
                                 >
-                                    <Select defaultValue="Option1">
+                                    <Select defaultValue="Option1" bordered={false} showArrow={false}>
                                         <Option value="Option1">
                                             <div className='text-secondary'>
                                                 <div>BACKLOG</div>
@@ -155,11 +171,16 @@ const Test = (props: Props) => {
                                         allowClear
                                         style={{ width: '100%' }}
                                         placeholder="Please select"
-                                        defaultValue={["Option1"]}
+                                        value={selectedItems}
+                                        onChange={setSelectedItems}
+                                        options={filteredOptions.map((item) => ({
+                                            value: item,
+                                            label: item,
+                                        }))}
+                                        bordered={false}
+                                        showArrow={false}
+                                        
                                     >
-                                        <Option value="Option1">Option 1</Option>
-                                        <Option value="Option2">Option 2</Option>
-                                        <Option value="Option3">Option 3</Option>
                                     </Select>
                                 </Form.Item>
                                 <Form.Item
@@ -168,7 +189,7 @@ const Test = (props: Props) => {
                                     rules={[{ required: true, message: 'Please choose the reporter' }]}
                                 >
                                     <Input.Group>
-                                        <Select defaultValue="Option1" showArrow={false} style={{width: '50%'}}>
+                                        <Select defaultValue="Option1" showArrow={false} style={{ width: '50%' }}>
                                             <Option value="Option1">Option 1</Option>
                                             <Option value="Option2">Option 2</Option>
                                             <Option value="Option3">Option 3</Option>
@@ -179,19 +200,7 @@ const Test = (props: Props) => {
                                     name="time"
                                     label="TIME TRACKING"
                                     rules={[{ required: true, message: 'Please enter the estimate' }]}>
-                                    <div className='d-flex'>
-                                        <div className='fs-5' style={{width: '15%'}}>
-                                            <ClockCircleOutlined />
-                                            <div className='fs-6'>3h</div>
-                                        </div>
-                                        <div className='' style={{width: '85%'}}>
-                                            <Progress percent={30} showInfo={false} />
-                                            <div className='d-flex justify-content-between'>
-                                                <div>1<span>h logged</span></div>
-                                                <div className=''>2<span>h remaining</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <TimeTracking />
                                 </Form.Item>
                             </Form>
                             <div className='changer-time pt-4 border-top'>
