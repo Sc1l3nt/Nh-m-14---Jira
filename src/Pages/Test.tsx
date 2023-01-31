@@ -3,6 +3,7 @@ import { Button, Col, Form, Input, InputNumber, Modal, Progress, Row, Select } f
 import { RequiredMark } from 'antd/es/form/Form';
 import FormItem from 'antd/es/form/FormItem';
 import React, { useState } from 'react'
+import TextDetail from '../Components/TextDetail';
 import TimeTracking from '../Components/TimeTracking';
 
 type Props = {}
@@ -48,7 +49,7 @@ const Test = (props: Props) => {
                             >
                                 <Input value={name} bordered={false} onChange={(e) => { setName(e.target.value) }} suffix={<EditFilled />} className='mb-4' />
                                 <Form.Item label="Description" required>
-                                    <TextArea value={description} onChange={(e) => { console.log(e.target.value) }} />
+                                    <TextDetail description={description}/>
                                 </Form.Item>
                                 <hr />
                                 <Form.Item label="Comments" required>
