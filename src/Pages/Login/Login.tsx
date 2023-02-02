@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import FormInput from "../../Components/FormInput";
+import FormInput from "../../Components/FormInput/FormInput";
 
 type Props = {};
 

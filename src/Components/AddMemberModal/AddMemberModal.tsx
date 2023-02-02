@@ -29,6 +29,8 @@ type Props = {
   visible: boolean;
   onCancel: any;
   project: any;
+  onFetchProject: any;
+  showFooter: any;
 };
 
 const AddMemberModal = (props: Props) => {

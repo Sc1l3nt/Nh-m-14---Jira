@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { Button, Drawer, Space } from "antd";
-import CreateIssue from "../Pages/CreateIssue/CreateIssue";
+import { Button, Drawer, FloatButton, Space } from "antd";
+import CreateIssue from "../../Pages/CreateIssue/CreateIssue";
 
-type Props = {
-  component: React.FC;
-  icon: JSX.Element;
-};
+type Props = {};
 
-const PopUpMobile = (props: Props) => {
+const PopUp = (props: Props) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -17,17 +14,19 @@ const PopUpMobile = (props: Props) => {
   const onClose = () => {
     setOpen(false);
   };
-  let Component: React.FC = props.component;
-  let Icon: JSX.Element = props.icon;
 
   return (
     <>
-      <button className="btn" onClick={showDrawer}>
-        {Icon}
-      </button>
+      <FloatButton
+        shape="circle"
+        type="primary"
+        style={{ right: 40 }}
+        icon={<i className="fa-solid fa-plus"></i>}
+        onClick={showDrawer}
+      />
       <Drawer
         title="Create a new issue"
-        width={window.innerWidth}
+        width={720}
         onClose={onClose}
         open={open}
         bodyStyle={{ paddingBottom: 80 }}
@@ -40,10 +39,10 @@ const PopUpMobile = (props: Props) => {
           </Space>
         }
       >
-        <Component />
+        <CreateIssue />
       </Drawer>
     </>
   );
 };
 
-export default PopUpMobile;
+export default PopUp;

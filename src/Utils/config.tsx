@@ -97,6 +97,7 @@ http.interceptors.request.use(
       TokenCybersoft: TOKEN_CYBERSOFT,
       "Content-Type": "application/json",
       charset: "utf-8",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type",
     };
 
     return config;

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Components/Header";
 import Menu from "../Components/Menu";
 import "./HomeTemplate.scss";
-import PopUp from "../Components/PopUp";
+import PopUp from "../Components/PopUp/PopUp";
 
 type Props = {};
 

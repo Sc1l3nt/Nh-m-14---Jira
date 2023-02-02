@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import HeaderMobile from "../Components/HeaderMobile";
 import MenuMobile from "../Components/MenuMobile";
-import PopUpMobile from "../Components/PopUpMobile";
+import PopUpMobile from "../Components/PopUpMobile/PopUpMobile";
 import "./HomeTemplateMobile.scss";
 
 type Props = {};

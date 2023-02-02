@@ -39,7 +39,7 @@ const Projects = (props: Props) => {
   const dispatch: DispatchType = useDispatch();
   const debounceSearchRef = useRef(null);
   const tableIsBreak = useMediaQuery({ maxWidth: 624 });
-  const { projectList } = useSelector(
+  const { projectList, projectDetail } = useSelector(
     (state: RootState) => state.projectReducer
   );
   const dataSource = projectList.map((project: ProjectModel) => {

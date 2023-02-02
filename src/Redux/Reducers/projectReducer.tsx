@@ -38,7 +38,7 @@ export interface ProjectCreateModel {
 }
 
 export interface ProjectEditModel {
-  id: number;
+  id: any;
   projectName: string;
   description: string;
   categoryId: any;
@@ -188,14 +188,11 @@ export const createProjectAuthorizeApi = (project: ProjectCreateModel) => {
   };
 };
 
-export const getProjectDetailApi = (projectId: number) => {
+export const getProjectDetailApi = (projectId: number | string) => {
   return async (dispatch: DispatchType) => {
     const result = await http.get(`/Project/getProjectDetail?id=${projectId}`);
     const action = getProjectDetailAction(result.data.content);
     dispatch(action);
-    notification.success({
-      message: `Project created successfully`,
-    });
   };
 };
 

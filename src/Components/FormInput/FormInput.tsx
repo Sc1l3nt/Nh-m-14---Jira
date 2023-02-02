@@ -3,9 +3,9 @@ import { LockOutlined, UserOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Button, Input, Checkbox, Form } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { NavLink } from "react-router-dom";
-import { DispatchType } from "../Redux/configStore";
+import { DispatchType } from "../../Redux/configStore";
 import { useDispatch } from "react-redux";
-import { loginApi, registerApi } from "../Redux/Reducers/userReducer";
+import { loginApi, registerApi } from "../../Redux/Reducers/userReducer";
 
 type Props = {
   listRender: string[];
@@ -48,7 +48,7 @@ const FormInput = (props: Props) => {
   };
 
   return (
-    <Form 
+    <Form
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ height: window.innerHeight }}
     >
