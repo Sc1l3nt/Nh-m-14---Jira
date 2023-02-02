@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Form, Input, Row, Select } from 'antd';
 import { CaretDownOutlined, CaretUpOutlined, CheckCircleFilled, DownOutlined, MinusOutlined, PlusSquareFilled, UpOutlined, WarningFilled } from '@ant-design/icons';
 import './CreateIssue.scss'
+import TextDetail from '../../Components/TextDetail';
 
 type Props = {}
 
@@ -103,7 +104,7 @@ const CreateIssue = (props: Props) => {
                                 },
                             ]}
                         >
-                            <Input.TextArea rows={4} placeholder="please enter url description" />
+                            <TextDetail description=''/>
                             <span className='text'>Describe the issue in as much detail as you'd like.</span>
                         </Form.Item>
                     </Col>

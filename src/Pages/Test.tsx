@@ -9,6 +9,7 @@ import {
     PlusSquareFilled,
     UpOutlined,
     WarningFilled,
+    CloseOutlined
 } from "@ant-design/icons";
 import {
     Button,
@@ -100,6 +101,9 @@ const Test = (props: Props) => {
                         </div>
                     </Col>
                     <Col span={7}>
+                        <div className=''>
+                            <button className='btn border' onClick={()=>{setIsModalOpen(false)}}><CloseOutlined /></button>
+                        </div>
                         <div className="item item-right">
                             <Form layout="vertical" hideRequiredMark>
                                 <Row>
