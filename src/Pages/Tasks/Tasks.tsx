@@ -19,6 +19,7 @@ import AddMemberModal from "../../Components/AddMemberModal/AddMemberModal";
 import { DispatchType, RootState } from "../../Redux/configStore";
 import {
   getProjectDetailApi,
+  MemberModel,
   ProjectModel,
 } from "../../Redux/Reducers/projectReducer";
 import {
@@ -27,6 +28,7 @@ import {
 } from "../../Redux/Reducers/taskReducer";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import TaskListTitle from "../../Components/Tasks/TaskListTitle/TaskListTitle";
 
 type Props = {};
 
@@ -84,8 +86,6 @@ const Tasks = (props: Props) => {
     //   dispatch(createAction(actionType.SET_TASK_ERROR, null));
     // };
   }, [dispatch, projectId]);
-
-  console.log("typeof projectDetail", projectDetail);
 
   useEffect(() => {
     if (projectDetail) {
@@ -251,7 +251,7 @@ const Tasks = (props: Props) => {
             </Typography.Text>
           )}
 
-          {projectDetail?.members.map((member) => {
+          {projectDetail?.members.map((member: MemberModel) => {
             return (
               <Tooltip key={member.userId} title={member.name} placement="top">
                 <Avatar
@@ -431,13 +431,13 @@ const Tasks = (props: Props) => {
         </DragDropContext>
       </Row>
 
-      {selectedTask && (
+      {/* {selectedTask && (
         <EditTaskModal
           visible={showEditTaskModal}
           onCancel={handleCancelEditTask}
           task={selectedTask}
         />
-      )}
+      )} */}
 
       {projectDetail && (
         <AddMemberModal

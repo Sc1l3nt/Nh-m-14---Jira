@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import commentReducer from "./Reducers/commentReducer";
 import projectReducer from "./Reducers/projectReducer";
 import taskReducer from "./Reducers/taskReducer";
 import userReducer from "./Reducers/userReducer";
@@ -8,6 +9,7 @@ export const store = configureStore({
     userReducer: userReducer,
     projectReducer: projectReducer,
     taskReducer: taskReducer,
+    commentReducer: commentReducer,
   },
 });
 
